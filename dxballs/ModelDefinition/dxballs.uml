@@ -2402,6 +2402,12 @@
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="e6860a64-c597-4b84-b077-e2b695fd8fd5"
+        LastKnownName="Package1"
+        LastKnownLocation="Package_1456.uml" />
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
