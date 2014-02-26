@@ -11,7 +11,18 @@ using System.Text;
 
 public class enemyBlock
 {
+	private object color
+	{
+		get;
+		set;
+	}
+
 	public virtual void death()
+	{
+		throw new System.NotImplementedException();
+	}
+
+	private void dropRandomItem()
 	{
 		throw new System.NotImplementedException();
 	}

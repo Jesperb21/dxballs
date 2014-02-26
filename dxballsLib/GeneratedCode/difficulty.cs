@@ -9,22 +9,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class ball
+public class difficulty
 {
-	public virtual object owner
+	public virtual object difficulty
 	{
 		get;
 		set;
 	}
 
-	private object eclipse eclipse
+	public virtual object descendSpeed
 	{
 		get;
 		set;
 	}
 
-	public ball(object integer owner)
+	public virtual object dropRate
 	{
+		get;
+		set;
 	}
 
 }

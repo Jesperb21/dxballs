@@ -6,31 +6,51 @@
   <MessageClass Name="Error" Label="Error" Option="Show errors" />
   <MessageClass Name="Property" Label="Property" Option="Show metadata" />
   <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
-  <Message Timestamp="2014-02-26T11:40:07" Importance="High" Text="Code generation or text transformation started." />
-  <Message Timestamp="2014-02-26T11:40:07" Importance="Diagnostic" Text="Name = ClassTemplate" />
-  <Message Timestamp="2014-02-26T11:40:07" Importance="Diagnostic" Text="Overwrite = True" />
-  <Message Timestamp="2014-02-26T11:40:07" Importance="Diagnostic" Text="ProjectPath = ..\dxballsLib\dxballsLib.csproj" />
-  <Message Timestamp="2014-02-26T11:40:07" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
-  <Message Timestamp="2014-02-26T11:40:07" Importance="Diagnostic" Text="TargetName = {Name}" />
-  <Message Timestamp="2014-02-26T11:40:07" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
-  <Message Timestamp="2014-02-26T11:40:07" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
-  <Message Timestamp="2014-02-26T11:40:07" Importance="Medium" Text="dxballs's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'dxballs::ball' -  (Class), 'dxballs::enemyBlock' -  (Class), 'dxballs::player' -  (Class), 'dxballs::main' -  (Class) " />
-  <Message Timestamp="2014-02-26T11:40:19" Importance="Medium" Text="Project Added: C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballsLib\dxballsLib.csproj" />
-  <Message Timestamp="2014-02-26T11:40:19" Importance="Medium" Text="'dxballs::ball' -  (Class) : success (file created) - C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballsLib\GeneratedCode\ball.cs" />
-  <Message Timestamp="2014-02-26T11:40:19" Importance="Medium" Text="'dxballs::enemyBlock' -  (Class) : success (file created) - C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballsLib\GeneratedCode\enemyBlock.cs" />
-  <Message Timestamp="2014-02-26T11:40:20" Importance="Medium" Text="'dxballs::player' -  (Class) : success (file created) - C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballsLib\GeneratedCode\player.cs" />
-  <Message Timestamp="2014-02-26T11:40:20" Importance="Medium" Text="'dxballs::main' -  (Class) : success (file created) - C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballsLib\GeneratedCode\main.cs" />
-  <Message Timestamp="2014-02-26T11:40:20" Importance="Diagnostic" Text="Name = StructTemplate" />
-  <Message Timestamp="2014-02-26T11:40:20" Importance="Diagnostic" Text="Overwrite = True" />
-  <Message Timestamp="2014-02-26T11:40:20" Importance="Diagnostic" Text="ProjectPath = ..\dxballsLib\dxballsLib.csproj" />
-  <Message Timestamp="2014-02-26T11:40:20" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
-  <Message Timestamp="2014-02-26T11:40:20" Importance="Diagnostic" Text="TargetName = {Name}" />
-  <Message Timestamp="2014-02-26T11:40:20" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
-  <Message Timestamp="2014-02-26T11:40:20" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
-  <Message Timestamp="2014-02-26T11:40:20" Importance="Medium" Text="dxballs's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'dxballs::ball' -  (Class), 'dxballs::enemyBlock' -  (Class), 'dxballs::player' -  (Class), 'dxballs::main' -  (Class) " />
-  <Message Timestamp="2014-02-26T11:40:20" Importance="Diagnostic" Text="'dxballs::ball' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-02-26T11:40:20" Importance="Diagnostic" Text="'dxballs::enemyBlock' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-02-26T11:40:20" Importance="Diagnostic" Text="'dxballs::player' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-02-26T11:40:21" Importance="Diagnostic" Text="'dxballs::main' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2014-02-26T11:40:21" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+  <Message Timestamp="2014-02-26T14:28:57" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2014-02-26T14:28:57" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2014-02-26T14:28:57" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2014-02-26T14:28:57" Importance="Diagnostic" Text="ProjectPath = ..\dxballsLib\dxballsLib.csproj" />
+  <Message Timestamp="2014-02-26T14:28:57" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2014-02-26T14:28:57" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2014-02-26T14:28:57" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2014-02-26T14:28:57" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2014-02-26T14:28:57" Importance="Medium" Text="dxballs's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'dxballs::standardRectangleBlock' -  (Class), 'dxballs::ball' -  (Class), 'dxballs::player' -  (Class), 'dxballs::enemyBlock' -  (Class), 'dxballs::difficulty' -  (Class), 'dxballs::drops' -  (Class), 'dxballs::main' -  (Class), 'dxballs::buffs' -  (Class), 'dxballs::debuffs' -  (Class), 'dxballs::bonus' -  (Class) " />
+  <Message Timestamp="2014-02-26T14:28:57" Importance="Medium" Text="'dxballs::standardRectangleBlock' -  (Class) : success (file replaced) - C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballsLib\GeneratedCode\standardRectangleBlock.cs" />
+  <Message Timestamp="2014-02-26T14:28:58" Importance="Medium" Text="'dxballs::ball' -  (Class) : success (file replaced) - C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballsLib\GeneratedCode\ball.cs" />
+  <Message Timestamp="2014-02-26T14:28:58" Importance="Medium" Text="'dxballs::player' -  (Class) : success (file replaced) - C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballsLib\GeneratedCode\player.cs" />
+  <Message Timestamp="2014-02-26T14:28:58" Importance="Medium" Text="'dxballs::enemyBlock' -  (Class) : success (file replaced) - C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballsLib\GeneratedCode\enemyBlock.cs" />
+  <Message Timestamp="2014-02-26T14:28:58" Importance="Medium" Text="'dxballs::difficulty' -  (Class) : success (file replaced) - C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballsLib\GeneratedCode\difficulty.cs" />
+  <Message Timestamp="2014-02-26T14:28:58" Importance="Medium" Text="'dxballs::drops' -  (Class) : success (file replaced) - C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballsLib\GeneratedCode\drops.cs" />
+  <Message Timestamp="2014-02-26T14:28:59" Importance="Medium" Text="'dxballs::main' -  (Class) : success (file replaced) - C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballsLib\GeneratedCode\main.cs" />
+  <Message Timestamp="2014-02-26T14:28:59" Importance="Medium" Text="'dxballs::buffs' -  (Class) : success (file replaced) - C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballsLib\GeneratedCode\buffs.cs" />
+  <Message Timestamp="2014-02-26T14:28:59" Importance="Medium" Text="'dxballs::debuffs' -  (Class) : success (file replaced) - C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballsLib\GeneratedCode\debuffs.cs" />
+  <Message Timestamp="2014-02-26T14:28:59" Importance="Medium" Text="'dxballs::bonus' -  (Class) : success (file replaced) - C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballsLib\GeneratedCode\bonus.cs" />
+  <Message Timestamp="2014-02-26T14:28:59" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2014-02-26T14:28:59" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2014-02-26T14:28:59" Importance="Diagnostic" Text="ProjectPath = ..\dxballsLib\dxballsLib.csproj" />
+  <Message Timestamp="2014-02-26T14:28:59" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2014-02-26T14:28:59" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2014-02-26T14:28:59" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2014-02-26T14:28:59" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2014-02-26T14:28:59" Importance="Medium" Text="dxballs's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'dxballs::standardRectangleBlock' -  (Class), 'dxballs::ball' -  (Class), 'dxballs::player' -  (Class), 'dxballs::enemyBlock' -  (Class), 'dxballs::difficulty' -  (Class), 'dxballs::drops' -  (Class), 'dxballs::main' -  (Class), 'dxballs::buffs' -  (Class), 'dxballs::debuffs' -  (Class), 'dxballs::bonus' -  (Class) " />
+  <Message Timestamp="2014-02-26T14:28:59" Importance="Diagnostic" Text="'dxballs::standardRectangleBlock' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-02-26T14:28:59" Importance="Diagnostic" Text="'dxballs::ball' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-02-26T14:28:59" Importance="Diagnostic" Text="'dxballs::player' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-02-26T14:28:59" Importance="Diagnostic" Text="'dxballs::enemyBlock' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-02-26T14:28:59" Importance="Diagnostic" Text="'dxballs::difficulty' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-02-26T14:29:00" Importance="Diagnostic" Text="'dxballs::drops' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-02-26T14:29:00" Importance="Diagnostic" Text="'dxballs::main' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-02-26T14:29:00" Importance="Diagnostic" Text="'dxballs::buffs' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-02-26T14:29:00" Importance="Diagnostic" Text="'dxballs::debuffs' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-02-26T14:29:00" Importance="Diagnostic" Text="'dxballs::bonus' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-02-26T14:29:00" Importance="Diagnostic" Text="The selection included 8 elements which were not bound to a template." />
+  <Message Timestamp="2014-02-26T14:29:00" Importance="Diagnostic" Text="'8c8131f4-6ec2-4aeb-a7b8-227a0a55cfb6' -  (Generalization): no bound template." />
+  <Message Timestamp="2014-02-26T14:29:00" Importance="Diagnostic" Text="'dxballs::' -  (Association): no bound template." />
+  <Message Timestamp="2014-02-26T14:29:00" Importance="Diagnostic" Text="'dxballs::' -  (Dependency): no bound template." />
+  <Message Timestamp="2014-02-26T14:29:00" Importance="Diagnostic" Text="'dxballs::' -  (Association): no bound template." />
+  <Message Timestamp="2014-02-26T14:29:00" Importance="Diagnostic" Text="'e4a358bb-fb0b-4c2b-97c5-a6ca60ad62be' -  (Comment): no bound template." />
+  <Message Timestamp="2014-02-26T14:29:00" Importance="Diagnostic" Text="'8cbbfc25-2e7d-4b65-817d-2814a5eecaa2' -  (Generalization): no bound template." />
+  <Message Timestamp="2014-02-26T14:29:00" Importance="Diagnostic" Text="'5a11397d-ac53-4d50-b3db-b6a3d33b38c4' -  (Generalization): no bound template." />
+  <Message Timestamp="2014-02-26T14:29:00" Importance="Diagnostic" Text="'df65f168-3a1f-40d3-8ff0-01b3da31cd7b' -  (Generalization): no bound template." />
+  <Message Timestamp="2014-02-26T14:29:00" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
 </Log>

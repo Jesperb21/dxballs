@@ -9,6 +9,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+/// <remarks>
+/// event listeners for movement
+/// 
+/// </remarks>
 public class player
 {
 	private object playerPictureBox

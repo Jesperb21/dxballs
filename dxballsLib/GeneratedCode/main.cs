@@ -9,6 +9,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+/// <remarks>
+/// event listeners for movement
+/// 
+/// </remarks>
 public class main
 {
 	public virtual object enemyList<list>
@@ -35,17 +39,40 @@ public class main
 		set;
 	}
 
+	public virtual object droprate
+	{
+		get;
+		set;
+	}
+
+	public virtual difficulty difficulty
+	{
+		get;
+		set;
+	}
+
+	public virtual player player
+	{
+		get;
+		set;
+	}
+
 	private void addPlayer()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void addEnemy()
+	public virtual void addEnemy(object point spawnLocation)
 	{
 		throw new System.NotImplementedException();
 	}
 
 	public virtual void addBall()
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void addEnemyLine()
 	{
 		throw new System.NotImplementedException();
 	}

@@ -40,9 +40,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GeneratedCode\ball.cs" />
+    <Compile Include="GeneratedCode\bonus.cs" />
+    <Compile Include="GeneratedCode\buffs.cs" />
+    <Compile Include="GeneratedCode\debuffs.cs" />
+    <Compile Include="GeneratedCode\difficulty.cs" />
+    <Compile Include="GeneratedCode\drops.cs" />
     <Compile Include="GeneratedCode\enemyBlock.cs" />
     <Compile Include="GeneratedCode\main.cs" />
     <Compile Include="GeneratedCode\player.cs" />
+    <Compile Include="GeneratedCode\standardRectangleBlock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

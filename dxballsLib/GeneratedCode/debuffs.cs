@@ -9,23 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class ball
+public class debuffs : drops
 {
-	public virtual object owner
-	{
-		get;
-		set;
-	}
-
-	private object eclipse eclipse
-	{
-		get;
-		set;
-	}
-
-	public ball(object integer owner)
-	{
-	}
-
 }
 
