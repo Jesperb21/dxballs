@@ -1,1 +1,112 @@
-﻿ 
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="e7f5a9a2-0cfb-48dd-88f9-09a93079f537" name="UMLClassDiagram1" linkedPackageId="2c0ff775-785f-40c4-980f-cd9e51f26d8c" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="1746ba75-88b8-42e0-8b6c-e4e3959a84cf">
+      <profileInstance Id="4528753e-4b0f-463b-ad6c-8c79b36bb145" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="b3392d28-5303-47be-95a4-a32639c406ae">
+      <profileInstance Id="6f9e64ed-af2e-4987-b090-7b85ee639cde" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="93270245-deb3-43bb-b564-3ae645c837e4" name="player" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="24383343-1914-4e02-9944-8add8f2362e5" />
+        <ownedAttributesInternal>
+          <property Id="d28e193a-b9ee-488f-bc13-7c5e49a80298" name="playerPictureBox" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="9bd01e1d-c517-47c0-af27-d11836bc4f39" />
+          </property>
+          <property Id="875d23a5-4c04-40fd-8453-75c6e3329ddf" name="playerNumber" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="870e061b-d07d-4f52-8fae-49dfa0c4ce68" />
+          </property>
+          <property Id="6ea2b568-b6e9-4352-ad05-85b4c6d2021d" name="speed" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a5c80cd7-7115-423e-b0c9-27893d0c3ea1" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="46aafa79-b2cb-4444-a467-03a11bba15ca" name="move" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cbb09d94-9ae8-49a9-8bb1-2766cab74109" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="fbe2a657-aadd-4cc8-b65b-f19ad578ca20" name="string leftOrRight" direction="In" isUnique="false">
+                  <elementDefinition Id="4a6cb957-f6ca-4264-b836-b22c7ae26657" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="d41eaaa1-edba-43df-9d99-b670f1c6af94" name="main" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="317320b7-6aae-40ec-ae80-04171c9a65d8" />
+        <ownedAttributesInternal>
+          <property Id="43a92043-9b00-40de-b860-d47bc6a1a244" name="enemyList&lt;list&gt;" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="9f0c44dd-757d-4b6a-bee8-c9ab30427251" />
+          </property>
+          <property Id="cca3754b-da50-4f75-907d-47b40ad0991a" name="ballList&lt;list&gt;" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="899d0a27-b03f-4e49-86e5-2d3954af8d9f" />
+          </property>
+          <property Id="c83a96a6-c4fe-4819-93dd-104f2c0cdc10" name="amountOfBalls" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8af813d3-06cb-4d79-bf9f-a5d1c9c3d770" />
+          </property>
+          <property Id="211a318a-a110-43ce-b01e-f55b91dfea44" name="Score" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ca4ed59a-2431-403e-98b7-3cf6fe8d5006" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="4a47007d-432e-441e-b18d-69f60858499e" name="addPlayer" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ed452b92-a94b-4f7f-b952-d952f1283a08" />
+          </operation>
+          <operation Id="ff506c70-1850-4175-a062-31f14d1504c4" name="addEnemy" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="91f41aca-ef0c-499b-b00f-a777ef935701" />
+          </operation>
+          <operation Id="778c2ec5-1440-4b3a-9b48-220e0a9a4caf" name="addBall" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="27fd2c57-1a58-46eb-99c2-1ffbc65c8e1e" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="a29f0ef1-5d44-4c6d-82db-96f65d569c34" name="enemyBlock" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4cd3ac67-4d0c-4e50-9de7-fd6602bc4fa2" />
+        <ownedOperationsInternal>
+          <operation Id="13af6e75-13e2-4758-92d7-5bd922969386" name="death" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3be70ebd-b311-4d46-9da2-52f30196ac66" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f5435dc9-68f8-4e45-b8c6-fade4c63d7a7" name="ball" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d481aedf-2fc5-43a6-b4fd-ba68f65c9c27" />
+        <ownedAttributesInternal>
+          <property Id="6b266ceb-8068-4204-a9fd-bd91280f9a97" name="owner" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="624b3c89-2344-4ffc-abad-0dc55f71feed" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="550a5b65-d0ca-443d-875e-2adf6d2f3747" name="ball" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b38b6d19-1e04-42e7-9ed3-cf5e7cc01dcd" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cdb95b27-fb46-4958-91a4-58da1c303a8a" name="integer owner" direction="In" isUnique="false">
+                  <elementDefinition Id="2116d73d-d141-40fa-b6dd-249c297baa3f" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="2c0ff775-785f-40c4-980f-cd9e51f26d8c" name="dxballs">
+    <elementDefinition Id="d39d496b-7e44-4047-a7d9-89d6d8734b7c" />
+  </package>
+</logicalClassDesignerModel>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="6091f6ad-b63d-4c34-b897-4cbcea06066a" name="Sequence1" linkedPackageId="3bd60ced-88e8-4c43-8871-cdb865fda2c6" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="1ef9bcc0-6188-4839-9f5b-61e53691f11e">
+      <profileInstance Id="8e17dd02-02b3-47f6-9e6a-b1e2720396ce" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="2f355a66-f846-4512-974d-113ebfb65345">
+      <profileInstance Id="60bb87c4-2c36-4a47-ac96-8b03063a1b5b" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction Id="ea047466-c09d-4711-bed9-998cc3d2cbe7" name="Sequence1" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+        <elementDefinition Id="64200d15-148b-4db1-ac05-c502a3fa3565" />
+        <fragments>
+          <interactionUse Id="8bd82254-a2ce-438d-b922-afbdb464a5af" name="clickA(playermove)">
+            <elementDefinition Id="014f1d29-0ba1-4503-a877-360c9fec5cd9" />
+            <coveredLifelines>
+              <lifelineMoniker Id="32587453-a396-4a2e-ab19-0651d01987ab" LastKnownName="Lifeline1" />
+            </coveredLifelines>
+            <interactionUseOccurrenceSpecifications>
+              <interactionUseOccurrenceSpecificationMoniker Id="5bd8d323-8bb3-448f-9f25-7972b236bd71" LastKnownName="InteractionUseOccurrenceSpecification1" />
+            </interactionUseOccurrenceSpecifications>
+          </interactionUse>
+          <interactionUseOccurrenceSpecification Id="5bd8d323-8bb3-448f-9f25-7972b236bd71" name="InteractionUseOccurrenceSpecification1">
+            <elementDefinition Id="50f3a5bc-9f8a-455c-8a1f-abe6ee221324" />
+            <covered>
+              <lifelineMoniker Id="32587453-a396-4a2e-ab19-0651d01987ab" LastKnownName="Lifeline1" />
+            </covered>
+          </interactionUseOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline Id="32587453-a396-4a2e-ab19-0651d01987ab" name="Lifeline1" isActor="false" lifelineDisplayName="Lifeline1">
+            <elementDefinition Id="0738793b-070d-4664-b066-50c018146334" />
+            <topLevelOccurrences>
+              <interactionUseOccurrenceSpecificationMoniker Id="5bd8d323-8bb3-448f-9f25-7972b236bd71" LastKnownName="InteractionUseOccurrenceSpecification1" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+      </interaction>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="3bd60ced-88e8-4c43-8871-cdb865fda2c6" name="dxballs">
+    <elementDefinition Id="d39d496b-7e44-4047-a7d9-89d6d8734b7c" />
+  </package>
+</SequenceDesignerModel>

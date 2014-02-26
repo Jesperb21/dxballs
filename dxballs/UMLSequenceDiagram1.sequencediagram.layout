@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sequenceDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="UMLSequenceDiagram1">
+  <SequenceDesignerModelMoniker Id="6091f6ad-b63d-4c34-b897-4cbcea06066a" />
+  <nestedChildShapes>
+    <lifelineShape Id="88372609-c266-4918-b738-7bdff96bc415" absoluteBounds="5.6458334922790527, 1, 0.15, 7" visible="true" visualStyleMode="Modified">
+      <lifelineMoniker Id="32587453-a396-4a2e-ab19-0651d01987ab" LastKnownName="Lifeline1" />
+      <relativeChildShapes>
+        <umlLifelineHeadShape Id="f573c315-350c-4a42-8c2d-b856b71770ef" absoluteBounds="5.2208334922790529, 0.6, 1, 0.4" customColor="White" visualStyleMode="Modified">
+          <lifelineMoniker Id="32587453-a396-4a2e-ab19-0651d01987ab" LastKnownName="Lifeline1" />
+          <relativeChildShapes />
+        </umlLifelineHeadShape>
+        <lifelineHoverShape Id="63dfa59c-3394-4bdf-9151-2c9e0e51c116" absoluteBounds="5.6458334922790527, 1, 0, 7">
+          <lifelineMoniker Id="32587453-a396-4a2e-ab19-0651d01987ab" LastKnownName="Lifeline1" />
+        </lifelineHoverShape>
+      </relativeChildShapes>
+    </lifelineShape>
+    <interactionUseShape Id="8490a89d-50b2-49c1-ac91-ce238bb9eec2" absoluteBounds="5.3958334922790527, 1.3, 0.65, 0.62" customColor="White" visible="true">
+      <interactionUseMoniker Id="8bd82254-a2ce-438d-b922-afbdb464a5af" LastKnownName="clickA(playermove)" />
+    </interactionUseShape>
+  </nestedChildShapes>
+</sequenceDesignerDiagram>
