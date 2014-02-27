@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Windows.UI.Xaml.Controls;
 
 public class ball
 {
@@ -18,7 +17,7 @@ public class ball
 		set;
 	}
 
-	private ContentControl eclipse
+	private object eclipse
 	{
 		get;
 		set;

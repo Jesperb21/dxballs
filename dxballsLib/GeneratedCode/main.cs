@@ -8,19 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using Windows.UI.Xaml.Media.Animation;
-using Windows.UI.Xaml.Resources;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.IO;
-
+using System.Windows;
 
 /// <remarks>
 /// event listeners for movement
@@ -28,7 +16,67 @@ using System.IO;
 /// </remarks>
 public class main
 {
-	
+	public virtual object enemyList
+	{
+		get;
+		set;
+	}
+
+	public virtual object ballList
+	{
+		get;
+		set;
+	}
+
+	public virtual object amountOfBalls
+	{
+		get;
+		set;
+	}
+
+	public virtual object Score
+	{
+		get;
+		set;
+	}
+
+	public virtual object droprate
+	{
+		get;
+		set;
+	}
+
+	public virtual difficulty difficulty
+	{
+		get;
+		set;
+	}
+
+	public virtual player player
+	{
+		get;
+		set;
+	}
+
+	private void addPlayer()
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void addEnemy(Point spawnLocation)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void addBall()
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void addEnemyLine()
+	{
+		throw new System.NotImplementedException();
+	}
 
 }
 

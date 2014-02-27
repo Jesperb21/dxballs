@@ -11,7 +11,7 @@ using System.Text;
 
 public class difficulty
 {
-	public string _difficulty
+	public virtual object Difficulty
 	{
 		get;
 		set;
