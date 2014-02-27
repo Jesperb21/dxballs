@@ -26,5 +26,68 @@ namespace dxballsLib
         {
             this.InitializeComponent();
         }
+        public virtual object enemyList
+        {
+            get;
+            set;
+        }
+
+        public virtual object ballList
+        {
+            get;
+            set;
+        }
+
+        public virtual object amountOfBalls
+        {
+            get;
+            set;
+        }
+
+        public virtual object Score
+        {
+            get;
+            set;
+        }
+
+        public virtual object droprate
+        {
+            get;
+            set;
+        }
+
+        public virtual difficulty difficulty
+        {
+            get;
+            set;
+        }
+
+        public virtual player player
+        {
+            get;
+            set;
+        }
+
+        private void addPlayer()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual void addEnemy(Point spawnLocation)
+        {
+            throw new System.NotImplementedException();
+        }
+            
+        public virtual void addBall()
+        {
+            ContentControl ballobj = new ContentControl();
+            ballobj.Template = Resources["ballTemplate"] as ControlTemplate;
+            playArea.Children.Add(ballobj);
+        }
+
+        public virtual void addEnemyLine()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
