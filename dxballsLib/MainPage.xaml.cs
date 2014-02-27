@@ -22,6 +22,7 @@ namespace dxballsLib
     /// </summary>
     public partial class MainPage : Page
     {
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -32,11 +33,7 @@ namespace dxballsLib
             set;
         }
 
-        public virtual object ballList
-        {
-            get;
-            set;
-        }
+        public List<ContentControl> ballList;
 
         public virtual object amountOfBalls
         {
@@ -80,9 +77,12 @@ namespace dxballsLib
             
         public virtual void addBall()
         {
-            ContentControl ballobj = new ContentControl();
-            ballobj.Template = Resources["ballTemplate"] as ControlTemplate;
-            playArea.Children.Add(ballobj);
+            //ContentControl ballobj = new ContentControl();
+            ballList[0] = new ContentControl() { Template = Resources["ballTemplate"] as ControlTemplate};
+            //ballList[0].Template = Resources["ballTemplate"] as ControlTemplate;
+            playArea.Children.Add(ballList[0]);
+            int xPos = 500;
+            ballList[0].Content = "Canvas.Left=" + xPos;
         }
 
         public virtual void addEnemyLine()
@@ -93,6 +93,11 @@ namespace dxballsLib
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             addBall();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Canvas.SetLeft(ballList[0], Canvas.GetLeft(ballList[0]) + 50);
         }
     }
 }

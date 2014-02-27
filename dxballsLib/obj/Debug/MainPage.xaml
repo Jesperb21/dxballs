@@ -21,6 +21,7 @@
         </Grid.RowDefinitions>
         <Canvas x:Name="playArea" Grid.Row="1" Background="#FF343434"/>
         <Button x:ConnectionId='1' Content="Button" HorizontalAlignment="Left" Margin="78,10,0,0" VerticalAlignment="Top"                     />
+        <Button x:ConnectionId='2' Content="Button" HorizontalAlignment="Left" Margin="276,10,0,0" VerticalAlignment="Top"                       />
 
     </Grid>
 </Page>

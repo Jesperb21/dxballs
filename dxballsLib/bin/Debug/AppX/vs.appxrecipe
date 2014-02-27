@@ -23,7 +23,7 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\user\Documents\Visual Studio 2013\Projects\DXBALLS\dxballsLib\bin\Debug\dxballsLib.exe">
       <PackagePath>dxballsLib.exe</PackagePath>
-      <Modified>2014-02-27T07:55:29.474</Modified>
+      <Modified>2014-02-27T08:45:57.555</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\user\Documents\Visual Studio 2013\Projects\DXBALLS\dxballsLib\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
@@ -51,7 +51,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\user\Documents\Visual Studio 2013\Projects\DXBALLS\dxballsLib\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2014-02-27T07:55:29.286</Modified>
+      <Modified>2014-02-27T08:32:42.870</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\user\Documents\Visual Studio 2013\Projects\DXBALLS\dxballsLib\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
