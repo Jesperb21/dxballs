@@ -14,8 +14,14 @@
         </ControlTemplate>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,2,0,-2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="343*"/>
+        </Grid.RowDefinitions>
+        <Canvas x:Name="playArea" Grid.Row="1" Background="#FF343434"/>
+        <Button x:ConnectionId='1' Content="Button" HorizontalAlignment="Left" Margin="78,10,0,0" VerticalAlignment="Top"                     />
+
     </Grid>
 </Page>
 

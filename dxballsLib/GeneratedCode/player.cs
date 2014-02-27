@@ -33,7 +33,7 @@ public class player
 		set;
 	}
 
-	public virtual void move(object string leftOrRight)
+	public virtual void move(string leftOrRight)
 	{
 		throw new System.NotImplementedException();
 	}
