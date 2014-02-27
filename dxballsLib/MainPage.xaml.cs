@@ -33,7 +33,7 @@ namespace dxballsLib
             set;
         }
 
-        public List<ContentControl> ballList;
+        public List<ContentControl> ballList = new List<ContentControl>();
 
         public virtual object amountOfBalls
         {
@@ -78,7 +78,7 @@ namespace dxballsLib
         public virtual void addBall()
         {
             //ContentControl ballobj = new ContentControl();
-            ballList[0] = new ContentControl() { Template = Resources["ballTemplate"] as ControlTemplate};
+            ballList.Add(new ContentControl() { Template = Resources["ballTemplate"] as ControlTemplate });
             //ballList[0].Template = Resources["ballTemplate"] as ControlTemplate;
             playArea.Children.Add(ballList[0]);
             int xPos = 500;
