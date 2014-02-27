@@ -11,3 +11,6 @@ C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\bin\Debug
 C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\bin\Debug\dxballslib.pdb
 C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\obj\Debug\dxballslib.exe
 C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\obj\Debug\dxballslib.pdb
+C:\Users\computer\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\bin\Debug\dxballslib.exe.config
+C:\Users\computer\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\obj\Debug\dxballslib.exe
+C:\Users\computer\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\obj\Debug\dxballslib.pdb
