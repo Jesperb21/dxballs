@@ -23,7 +23,7 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\user\Documents\Visual Studio 2013\Projects\DXBALLS\dxballsLib\bin\Debug\dxballsLib.exe">
       <PackagePath>dxballsLib.exe</PackagePath>
-      <Modified>2014-02-27T11:02:28.549</Modified>
+      <Modified>2014-02-27T11:15:01.083</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\user\Documents\Visual Studio 2013\Projects\DXBALLS\dxballsLib\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>

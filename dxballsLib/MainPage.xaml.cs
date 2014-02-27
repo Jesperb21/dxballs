@@ -118,12 +118,12 @@ namespace dxballsLib
             }
             else
             {
-                oldBallCords.Add(new Point(Canvas.GetLeft(ballList[0]), Canvas.GetTop(ballList[0])));
+                oldBallCords.Add(new Point(1, -10));
             }
             if (!i)
             {
                 Canvas.SetLeft(ballList[0], Canvas.GetLeft(ballList[0]) + nextRelativeXPos);
-                Canvas.SetTop(ballList[0], Canvas.GetLeft(ballList[0]) + nextRelativeYPos);
+                Canvas.SetTop(ballList[0], Canvas.GetTop(ballList[0]) + nextRelativeYPos);
             }
         }
     }
