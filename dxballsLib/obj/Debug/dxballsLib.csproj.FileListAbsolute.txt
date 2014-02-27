@@ -14,3 +14,16 @@ C:\Users\user\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\obj\Debug
 C:\Users\computer\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\bin\Debug\dxballslib.exe.config
 C:\Users\computer\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\obj\Debug\dxballslib.exe
 C:\Users\computer\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\obj\Debug\dxballslib.pdb
+C:\Users\Legacy 9\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\bin\Debug\dxballslib.exe.config
+C:\Users\Legacy 9\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\obj\Debug\dxballslib.exe
+C:\Users\Legacy 9\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\obj\Debug\dxballslib.pdb
+C:\Users\Legacy 9\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\obj\Debug\dxballslib.csprojResolveAssemblyReference.cache
+C:\Users\Legacy 9\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\obj\Debug\MainWindow.baml
+C:\Users\Legacy 9\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\obj\Debug\MainWindow.g.cs
+C:\Users\Legacy 9\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\obj\Debug\App.g.cs
+C:\Users\Legacy 9\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\obj\Debug\dxballslib_MarkupCompile.cache
+C:\Users\Legacy 9\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\obj\Debug\dxballslib.g.resources
+C:\Users\Legacy 9\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\obj\Debug\dxballslib.Properties.Resources.resources
+C:\Users\Legacy 9\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\obj\Debug\dxballslib.csproj.GenerateResource.Cache
+C:\Users\Legacy 9\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\bin\Debug\dxballslib.exe
+C:\Users\Legacy 9\Documents\Visual Studio 2013\Projects\dxballs\dxballslib\bin\Debug\dxballslib.pdb
