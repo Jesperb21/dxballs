@@ -13,6 +13,17 @@
                 <Ellipse Fill="Red" Height="15" Width="15"/>
             </Grid>
         </ControlTemplate>
+        <Style x:Key="enemyStandardBlock" TargetType="{x:Type Control}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Control}">
+                        <Grid>
+                            <Rectangle Fill="Black" Height="10" Stroke="Black" Width="50"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>

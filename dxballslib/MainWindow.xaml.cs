@@ -122,5 +122,19 @@ namespace dxballslib
         {
             startGameUp();
         }
+        //added from GeneratedCode\main.cs
+        private virtual void addEnemy(Point spawnLocation)
+        {
+            playerBlock.Template = Resources["playerTemplate"] as ControlTemplate;
+            playArea.Children.Add(playerBlock);
+            Canvas.SetBottom(playerBlock, 10);
+            Canvas.SetLeft(playerBlock, (playArea.ActualWidth / 2) - 25);
+        }
+        public virtual void addEnemyLine()
+        {
+            int numberOfBlocksToAdd = 10;
+            int widthPerBlock = 50;
+
+        }
     }
 }
