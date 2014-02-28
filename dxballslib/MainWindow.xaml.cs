@@ -117,6 +117,25 @@ namespace dxballslib
                     ydirection = -1;
                 }
             }
+            foreach (ContentControl enemy in enemyBlockList)
+            {
+                double ballTop = playArea.ActualHeight - (Canvas.GetBottom(ball1)+ball1.ActualHeight); //boldenes position bliver sat via "SetBottom" 
+                //så de har ikke nogen "getTop" der kunne bruges, så udregn hvad dens "top" ville være.
+                if (ballTop >= Canvas.GetTop(enemy) && ballTop <= (Canvas.GetTop(enemy)+enemy.ActualHeight))
+                {//dens top er indenfor enemy'ens "top plus dens højde" område.
+                    if (Canvas.GetLeft(ball1) >= Canvas.GetLeft(enemy) && (Canvas.GetLeft(ball1)+ball1.ActualWidth) <= (Canvas.GetLeft(enemy)+enemy.ActualWidth))
+                    {
+                        if (ydirection == 1)
+                        {
+                            ydirection = -1;
+                        }
+                        else
+                        {
+                            ydirection = 1;
+                        }
+                    }
+                }
+            }
             Canvas.SetBottom(ball1, (Canvas.GetBottom(ball1) - (yspeed * ydirection)));
             Canvas.SetLeft(ball1, (Canvas.GetLeft(ball1) + (xspeed*xdirection)));
             //enemy movement downwards
