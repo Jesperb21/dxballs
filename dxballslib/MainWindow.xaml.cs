@@ -34,6 +34,7 @@ namespace dxballslib
         public double enemyMovementSpeed = 0.1;
         public int spawnInterval = 250;
         private int spawnCounter;
+        public int score;
         public MainWindow()
         {
             InitializeComponent();
@@ -42,6 +43,7 @@ namespace dxballslib
 
         public void startGameUp()
         {
+            score = 0;
             playerBlock.Template = Resources["playerTemplate"] as ControlTemplate;
             playArea.Children.Add(playerBlock);
             Canvas.SetBottom(playerBlock, 10);
@@ -117,13 +119,13 @@ namespace dxballslib
                     ydirection = -1;
                 }
             }
-            foreach (ContentControl enemy in enemyBlockList)
+            for (int i = 0; i < enemyBlockList.Count(); i++ )
             {
-                double ballTop = playArea.ActualHeight - (Canvas.GetBottom(ball1)+ball1.ActualHeight); //boldenes position bliver sat via "SetBottom" 
+                double ballTop = playArea.ActualHeight - (Canvas.GetBottom(ball1) + ball1.ActualHeight); //boldenes position bliver sat via "SetBottom" 
                 //så de har ikke nogen "getTop" der kunne bruges, så udregn hvad dens "top" ville være.
-                if (ballTop >= Canvas.GetTop(enemy) && ballTop <= (Canvas.GetTop(enemy)+enemy.ActualHeight))
+                if (ballTop >= Canvas.GetTop(enemyBlockList[i]) && ballTop <= (Canvas.GetTop(enemyBlockList[i]) + enemyBlockList[i].ActualHeight))
                 {//dens top er indenfor enemy'ens "top plus dens højde" område.
-                    if (Canvas.GetLeft(ball1) >= Canvas.GetLeft(enemy) && (Canvas.GetLeft(ball1)+ball1.ActualWidth) <= (Canvas.GetLeft(enemy)+enemy.ActualWidth))
+                    if (Canvas.GetLeft(ball1) >= Canvas.GetLeft(enemyBlockList[i]) && (Canvas.GetLeft(ball1) + ball1.ActualWidth) <= (Canvas.GetLeft(enemyBlockList[i]) + enemyBlockList[i].ActualWidth))
                     {
                         if (ydirection == 1)
                         {
@@ -133,6 +135,10 @@ namespace dxballslib
                         {
                             ydirection = 1;
                         }
+
+                        playArea.Children.Remove(enemyBlockList[i]);
+                        enemyBlockList.RemoveAt(i);
+                        score += 100;
                     }
                 }
             }
@@ -149,7 +155,7 @@ namespace dxballslib
                 spawnCounter = 0;
             }
             spawnCounter++;
-            
+            ScoreText.Text = score.ToString(); //update the score textblock
         }
 
 

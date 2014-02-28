@@ -26,6 +26,8 @@
         </Grid.RowDefinitions>
         <Button x:Name="startButton" Content="Start Game" HorizontalAlignment="Left" Margin="204,112,0,0" VerticalAlignment="Top" Width="75" Click="startButton_Click" Grid.Row="1"/>
         <Canvas x:Name="playArea" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left"  Grid.Row="0" TextWrapping="Wrap" Text="Score:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="ScoreText" HorizontalAlignment="Left"  Grid.Row="0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Margin="35,0,0,0"/>
 
     </Grid>
 </Window>
