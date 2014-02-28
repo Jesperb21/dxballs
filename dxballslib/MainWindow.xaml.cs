@@ -30,6 +30,10 @@ namespace dxballslib
         private double ballspeed = 6;
         private double xspeed;
         private double yspeed;
+        public List<ContentControl> enemyBlockList = new List<ContentControl>();
+        public double enemyMovementSpeed = 0.1;
+        public int spawnInterval = 250;
+        private int spawnCounter;
         public MainWindow()
         {
             InitializeComponent();
@@ -49,7 +53,7 @@ namespace dxballslib
             xspeed = ballspeed / 2;
             yspeed = ballspeed / 2;
             startButton.Visibility = Visibility.Hidden;
-            
+            spawnCounter = spawnInterval;
             mainLoop.Interval = TimeSpan.FromMilliseconds(20); //50 per second
             mainLoop.Tick += mainLoop_Tick;
             mainLoop.Start();
@@ -115,6 +119,18 @@ namespace dxballslib
             }
             Canvas.SetBottom(ball1, (Canvas.GetBottom(ball1) - (yspeed * ydirection)));
             Canvas.SetLeft(ball1, (Canvas.GetLeft(ball1) + (xspeed*xdirection)));
+            //enemy movement downwards
+            foreach (ContentControl enemy in enemyBlockList)
+            {
+                Canvas.SetTop(enemy, Canvas.GetTop(enemy) + enemyMovementSpeed);
+            }
+            if (spawnCounter >= spawnInterval)
+            {
+                addEnemyLine();
+                spawnCounter = 0;
+            }
+            spawnCounter++;
+            
         }
 
 
@@ -123,18 +139,30 @@ namespace dxballslib
             startGameUp();
         }
         //added from GeneratedCode\main.cs
-        private virtual void addEnemy(Point spawnLocation)
+        private void addEnemy(Point spawnLocation)
         {
-            playerBlock.Template = Resources["playerTemplate"] as ControlTemplate;
-            playArea.Children.Add(playerBlock);
-            Canvas.SetBottom(playerBlock, 10);
-            Canvas.SetLeft(playerBlock, (playArea.ActualWidth / 2) - 25);
+            ContentControl temp = new ContentControl();
+            temp.Template = Resources["enemyStandardBlock"] as ControlTemplate;
+            playArea.Children.Add(temp);
+            Canvas.SetTop(temp, spawnLocation.Y);
+            Canvas.SetLeft(temp, spawnLocation.X);
+            enemyBlockList.Add(temp);
+            //MessageBox.Show("derp");
         }
         public virtual void addEnemyLine()
         {
             int numberOfBlocksToAdd = 10;
             int widthPerBlock = 50;
-
+            int spaceBetweenBlocks = 5;
+            int totalWidthOfBlocksWhenPlaced = (numberOfBlocksToAdd * widthPerBlock) + ((numberOfBlocksToAdd - 1) * spaceBetweenBlocks);
+            if (playArea.ActualWidth < (totalWidthOfBlocksWhenPlaced+16))
+            {
+                Application.Current.MainWindow.Width = totalWidthOfBlocksWhenPlaced+16;//ved ikke hvorfor +16, men ellers så gav den en spaceToFirstBlock på -8 / -4
+            }
+            int spaceToFirstBlock = ((int)playArea.ActualWidth - totalWidthOfBlocksWhenPlaced)/2;
+            for(int i = 0; i <numberOfBlocksToAdd; i++){
+                addEnemy(new Point((i*55)+spaceToFirstBlock, 0));   
+            }
         }
     }
 }

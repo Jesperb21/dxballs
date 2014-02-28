@@ -13,17 +13,11 @@
                 <Ellipse Fill="Red" Height="15" Width="15"/>
             </Grid>
         </ControlTemplate>
-        <Style x:Key="enemyStandardBlock" TargetType="{x:Type Control}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Control}">
-                        <Grid>
-                            <Rectangle Fill="Black" Height="10" Stroke="Black" Width="50"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        <ControlTemplate x:Key="enemyStandardBlock" TargetType="{x:Type Control}">
+            <Grid>
+                <Rectangle Fill="Black" Height="10" Stroke="Black" Width="50"/>
+            </Grid>
+        </ControlTemplate>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -31,8 +25,7 @@
             <RowDefinition Height="299*"/>
         </Grid.RowDefinitions>
         <Button x:Name="startButton" Content="Start Game" HorizontalAlignment="Left" Margin="204,112,0,0" VerticalAlignment="Top" Width="75" Click="startButton_Click" Grid.Row="1"/>
-        <Canvas x:Name="playArea" Grid.Row="1">
-        </Canvas>
+        <Canvas x:Name="playArea" Grid.Row="1"/>
 
     </Grid>
 </Window>
