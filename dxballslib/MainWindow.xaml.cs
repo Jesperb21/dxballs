@@ -55,11 +55,6 @@ namespace dxballslib
             playArea.Children.Add(playerBlock);
             Canvas.SetBottom(playerBlock, 10);
             Canvas.SetLeft(playerBlock, (playArea.ActualWidth / 2) - 25);
-            //place a ball on the screen in the middle of the screen
-            ball1.Template = Resources["ballTemplate"] as ControlTemplate;
-            playArea.Children.Add(ball1);
-            Canvas.SetBottom(ball1, (playArea.ActualHeight/2));
-            Canvas.SetLeft(ball1, (playArea.ActualWidth / 2) - 7.5);
             //set ball parameters
             xspeed = ballspeed / 2;
             yspeed = ballspeed / 2;
@@ -82,81 +77,84 @@ namespace dxballslib
                 Canvas.SetLeft(playerBlock, (Canvas.GetLeft(playerBlock) + playerMovementSpeed));
             }
             //ball controls
-            if (Canvas.GetLeft(ball1) >= (playArea.ActualWidth-ball1.ActualWidth))//hvis bolden rammer højre side
+            foreach (ContentControl ball1 in ballList)
             {
-                xdirection = -1;
-            }
-            if(Canvas.GetLeft(ball1) <= 0)// hvis bolden rammer venstre side
-            {
-                xdirection = 1;
-            }
-            if (Canvas.GetBottom(ball1) <= 0)//ball hits buttom
-            {
-                ydirection = -1;
-            }
-            if (Canvas.GetBottom(ball1) >= playArea.ActualHeight)//hvis bolden rammer toppen
-            {
-                ydirection = 1;
-            }
-            
-            if (Canvas.GetBottom(ball1) <= 10 + playerBlock.ActualHeight && Canvas.GetBottom(ball1) >= 10)//ball player hittest
-            {
-                if((Canvas.GetLeft(ball1) >= Canvas.GetLeft(playerBlock)) && (Canvas.GetLeft(ball1) <= Canvas.GetLeft(playerBlock)+playerBlock.ActualWidth))
-                {
-                    //find ud af hvor bolden rammer playerblocken 
-                    double v1 = ((Canvas.GetLeft(ball1) + ball1.ActualWidth / 2) - Canvas.GetLeft(playerBlock));
-                    double v2 = ((Canvas.GetLeft(playerBlock) + playerBlock.ActualWidth / 2) - Canvas.GetLeft(playerBlock));
-                    v1 -= v2;
-                    xspeed = v1 / v2;
-                    xspeed *= ballspeed; //gang forholdet med boldens hastighed
-                    if (xspeed < 0) //hvis bolden ramte playerblockens venstre side
-                    {
-                        xspeed = -xspeed;
-                        xdirection = -1;//få bolden til at bevæge sig mod venstre
-                    }
-                    else
-                    {//ellers bevæg den mod højre
-                        xdirection = 1;
-                    }
-                    if (xspeed > ballspeed - 0.5)//hvis bolden bevæger sig for hurtigt vandret(og ikke efterlader noget af boldens max hastighed til y-hastigheden)
-                    {
-                        xspeed = ballspeed-0.5;//så sænk dens x-hastighed til et maximum, 0.5 mindre end boldens totale max hastighed
-                    }
-                    yspeed = ballspeed - xspeed;//y hastighed udregnes ud fra boldens max hastighed og dens x hastighed
-                    if (yspeed < 0) //dont go negative
-                    {
-                        yspeed = -yspeed;
-                    }
 
-                    ydirection = -1; //bevæg bolden opad nu
+                if (Canvas.GetLeft(ball1) >= (playArea.ActualWidth - ball1.ActualWidth))//hvis bolden rammer højre side
+                {
+                    xdirection = -1;
                 }
-            }
-            for (int i = 0; i < enemyBlockList.Count(); i++ ) //loop igennem hver enemyBlock i enemyBlockList'en
-            {
-                double ballTop = playArea.ActualHeight - (Canvas.GetBottom(ball1) + ball1.ActualHeight); //boldenes position bliver sat via "SetBottom" 
-                //så de har ikke nogen "getTop" der kunne bruges, så udregn hvad dens "top" ville være.
-                if (ballTop >= Canvas.GetTop(enemyBlockList[i]) && ballTop <= (Canvas.GetTop(enemyBlockList[i]) + enemyBlockList[i].ActualHeight))
-                {//dens top er indenfor enemy'ens "top plus dens højde" område.
-                    if (Canvas.GetLeft(ball1) >= Canvas.GetLeft(enemyBlockList[i]) && (Canvas.GetLeft(ball1) + ball1.ActualWidth) <= (Canvas.GetLeft(enemyBlockList[i]) + enemyBlockList[i].ActualWidth))
-                    {//dens left er indefor enemy'ens "left plus dens bredde" område
-                        if (ydirection == 1)
-                        {//bevæg dig op hvis du er på vej ned
-                            ydirection = -1;
+                if (Canvas.GetLeft(ball1) <= 0)// hvis bolden rammer venstre side
+                {
+                    xdirection = 1;
+                }
+                if (Canvas.GetBottom(ball1) <= 0)//ball hits buttom
+                {
+                    ydirection = -1;
+                }
+                if (Canvas.GetBottom(ball1) >= playArea.ActualHeight)//hvis bolden rammer toppen
+                {
+                    ydirection = 1;
+                }
+
+                if (Canvas.GetBottom(ball1) <= 10 + playerBlock.ActualHeight && Canvas.GetBottom(ball1) >= 10)//ball player hittest
+                {
+                    if ((Canvas.GetLeft(ball1) >= Canvas.GetLeft(playerBlock)) && (Canvas.GetLeft(ball1) <= Canvas.GetLeft(playerBlock) + playerBlock.ActualWidth))
+                    {
+                        //find ud af hvor bolden rammer playerblocken 
+                        double v1 = ((Canvas.GetLeft(ball1) + ball1.ActualWidth / 2) - Canvas.GetLeft(playerBlock));
+                        double v2 = ((Canvas.GetLeft(playerBlock) + playerBlock.ActualWidth / 2) - Canvas.GetLeft(playerBlock));
+                        v1 -= v2;
+                        xspeed = v1 / v2;
+                        xspeed *= ballspeed; //gang forholdet med boldens hastighed
+                        if (xspeed < 0) //hvis bolden ramte playerblockens venstre side
+                        {
+                            xspeed = -xspeed;
+                            xdirection = -1;//få bolden til at bevæge sig mod venstre
                         }
                         else
-                        {//ellers gå nedad
-                            ydirection = 1;
+                        {//ellers bevæg den mod højre
+                            xdirection = 1;
+                        }
+                        if (xspeed > ballspeed - 0.5)//hvis bolden bevæger sig for hurtigt vandret(og ikke efterlader noget af boldens max hastighed til y-hastigheden)
+                        {
+                            xspeed = ballspeed - 0.5;//så sænk dens x-hastighed til et maximum, 0.5 mindre end boldens totale max hastighed
+                        }
+                        yspeed = ballspeed - xspeed;//y hastighed udregnes ud fra boldens max hastighed og dens x hastighed
+                        if (yspeed < 0) //dont go negative
+                        {
+                            yspeed = -yspeed;
                         }
 
-                        playArea.Children.Remove(enemyBlockList[i]);//fjern enemyblock'en fra skærmen
-                        enemyBlockList.RemoveAt(i);//og fra listen
-                        score += 100;//tilføj lidt score
+                        ydirection = -1; //bevæg bolden opad nu
                     }
                 }
+                for (int i = 0; i < enemyBlockList.Count(); i++) //loop igennem hver enemyBlock i enemyBlockList'en
+                {
+                    double ballTop = playArea.ActualHeight - (Canvas.GetBottom(ball1) + ball1.ActualHeight); //boldenes position bliver sat via "SetBottom" 
+                    //så de har ikke nogen "getTop" der kunne bruges, så udregn hvad dens "top" ville være.
+                    if (ballTop >= Canvas.GetTop(enemyBlockList[i]) && ballTop <= (Canvas.GetTop(enemyBlockList[i]) + enemyBlockList[i].ActualHeight))
+                    {//dens top er indenfor enemy'ens "top plus dens højde" område.
+                        if (Canvas.GetLeft(ball1) >= Canvas.GetLeft(enemyBlockList[i]) && (Canvas.GetLeft(ball1) + ball1.ActualWidth) <= (Canvas.GetLeft(enemyBlockList[i]) + enemyBlockList[i].ActualWidth))
+                        {//dens left er indefor enemy'ens "left plus dens bredde" område
+                            if (ydirection == 1)
+                            {//bevæg dig op hvis du er på vej ned
+                                ydirection = -1;
+                            }
+                            else
+                            {//ellers gå nedad
+                                ydirection = 1;
+                            }
+
+                            playArea.Children.Remove(enemyBlockList[i]);//fjern enemyblock'en fra skærmen
+                            enemyBlockList.RemoveAt(i);//og fra listen
+                            score += 100;//tilføj lidt score
+                        }
+                    }
+                }
+                Canvas.SetBottom(ball1, (Canvas.GetBottom(ball1) - (yspeed * ydirection)));//flyt bolden
+                Canvas.SetLeft(ball1, (Canvas.GetLeft(ball1) + (xspeed * xdirection)));//flyt bolden
             }
-            Canvas.SetBottom(ball1, (Canvas.GetBottom(ball1) - (yspeed * ydirection)));//flyt bolden
-            Canvas.SetLeft(ball1, (Canvas.GetLeft(ball1) + (xspeed*xdirection)));//flyt bolden
-            
             //enemy movement downwards
             foreach (ContentControl enemy in enemyBlockList)//for all enemies
             {
@@ -165,6 +163,7 @@ namespace dxballslib
             if (spawnCounter >= spawnInterval)
             {//spawn some enemies hvis du har ventet nok ticks
                 addEnemyLine();
+                addNewBall();
                 spawnCounter = 0; //reset spawncounteren
             }
             spawnCounter++;//another tick went by
@@ -200,6 +199,15 @@ namespace dxballslib
             for(int i = 0; i <numberOfBlocksToAdd; i++){//spawn enemies
                 addEnemy(new Point((i*55)+spaceToFirstBlock, 0));   
             }
+        }
+        private void addNewBall()
+        {
+            ContentControl tempBall = new ContentControl();//add a temporary ContentControl variable-------------------------------------------edit this
+            tempBall.Template = Resources["ballTemplate"] as ControlTemplate;//set a template for it
+            playArea.Children.Add(tempBall);//add it to the screen
+            Canvas.SetBottom(tempBall, (playArea.ActualHeight / 2));//set where it should start (y)
+            Canvas.SetLeft(tempBall, (playArea.ActualWidth / 2) - 7.5);//set where it should start(x)
+            ballList.Add(tempBall);//add it to the ballList
         }
     }
 }

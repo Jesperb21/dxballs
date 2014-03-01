@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Controls;
 
 public class ball
 {
@@ -17,15 +18,23 @@ public class ball
 		set;
 	}
 
-	private object eclipse
+	private ContentControl ballObject
 	{
 		get;
 		set;
 	}
 
-	public ball(int owner)
+    private double xspeed;
+    private double yspeed;
+    private int xdirection;
+    private int ydirection;
+    public ball(ContentControl ballobject, double XSpeedToSpawnWith, double YSpeedToSpawnWith, int XDirectionToSpawnWith, int YDirectionToSpawnWith)
 	{
+        ballObject = ballobject;
+        xspeed = XSpeedToSpawnWith;
+        yspeed = YSpeedToSpawnWith;
+        xdirection = XDirectionToSpawnWith;
+        ydirection = YDirectionToSpawnWith;
 	}
-
 }
 
