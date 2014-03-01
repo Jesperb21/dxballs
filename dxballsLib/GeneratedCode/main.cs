@@ -16,64 +16,64 @@ using System.Windows;
 /// </remarks>
 public class main
 {
-	public virtual object enemyList
+    public virtual object enemyList// got it
 	{
 		get;
 		set;
 	}
 
-	public virtual object ballList
+	public virtual object ballList// got it
 	{
 		get;
 		set;
 	}
 
-	public virtual object amountOfBalls
+	public virtual object amountOfBalls// ballList.Count()  got this function
 	{
 		get;
 		set;
 	}
 
-	public virtual object Score
+	public virtual object Score// got it
 	{
 		get;
 		set;
 	}
 
-	public virtual object droprate
+    public virtual object droprate// got it
 	{
 		get;
 		set;
 	}
 
-	public virtual difficulty difficulty
+	public virtual difficulty difficulty// got it
 	{
 		get;
 		set;
 	}
 
-	public virtual player player
+	public virtual player player// got it (if its the list)
 	{
 		get;
 		set;
 	}
 
-	private void addPlayer()
+	private void addPlayer()// got it
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void addEnemy(Point spawnLocation)
+	public virtual void addEnemy(Point spawnLocation)// got it
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void addBall()
+    public virtual void addBall() // got it
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void addEnemyLine()
+    public virtual void addEnemyLine()// got it
 	{
 		throw new System.NotImplementedException();
 	}

@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Controls;
 
 /// <remarks>
 /// event listeners for movement
@@ -15,27 +16,40 @@ using System.Text;
 /// </remarks>
 public class player
 {
-	private object playerPictureBox
+    public player(ContentControl PlayerBlock, int PlayerNumber, int Speed)
+    {
+        playerBlock = PlayerBlock;
+        playerNumber = PlayerNumber;
+        speed = Speed;
+    }
+	public ContentControl playerBlock
 	{
 		get;
 		set;
 	}
 
-	public virtual object playerNumber
+	public int playerNumber
 	{
 		get;
 		set;
 	}
 
-	public virtual object speed
+	public int speed
 	{
 		get;
 		set;
 	}
 
-	public virtual void move(string leftOrRight)
+	public void move(string leftOrRight)
 	{
-		throw new System.NotImplementedException();
+        if (leftOrRight == "LEFT")
+        {
+            Canvas.SetLeft(playerBlock, (Canvas.GetLeft(playerBlock) - speed));
+        }
+        else if(leftOrRight == "RIGHT")
+        {
+            Canvas.SetLeft(playerBlock, (Canvas.GetLeft(playerBlock) + speed));
+        }
 	}
 
 }

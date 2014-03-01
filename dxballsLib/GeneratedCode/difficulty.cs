@@ -11,19 +11,33 @@ using System.Text;
 
 public class difficulty
 {
-	public virtual object Difficulty
+	public difficulty(int difficulty)
+	{
+        switch (difficulty)
+        {
+            case 1:
+                descendSpeed = 0.05;
+                dropRate = 0.25;
+                break;
+            case 2:
+                descendSpeed = 0.075;
+                dropRate = 0.125;
+                break;
+            case 3:
+                descendSpeed = 0.1;
+                dropRate = 0.1;
+                break;
+
+        }
+	}
+
+	public double descendSpeed
 	{
 		get;
 		set;
 	}
 
-	public virtual object descendSpeed
-	{
-		get;
-		set;
-	}
-
-	public virtual object dropRate
+	public double dropRate
 	{
 		get;
 		set;
