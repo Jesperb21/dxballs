@@ -25,10 +25,15 @@ namespace dxballslib
         public List<ball> ballList = new List<ball>(); //list of the ball objects in the game at the moment
         public List<ContentControl> enemyBlockList = new List<ContentControl>(); //list of enemyblocks in the game at the moment
         public List<player> playerList = new List<player>();
+        public List<drops> dropList = new List<drops>();
         public double enemyMovementSpeed = new double(); //enemyBlocks descending speed
         public int spawnInterval = 250;//spawn interval for a new line of enemyBlocks, measured in ticks from the mainLoop
-        public int score; //the score
-//        public int playerMovementSpeed = 5;
+        public int score
+        {
+            get;set;
+        } //the score
+
+        public int playerMovementSpeed = 5;
         public double droprate = new double();
 
         private int spawningPlayerSpeed = 5;
@@ -155,10 +160,7 @@ namespace dxballslib
                                 {//ellers gå nedad
                                     ydirection = 1;
                                 }
-
-                                playArea.Children.Remove(enemyBlockList[i]);//fjern enemyblock'en fra skærmen
-                                enemyBlockList.RemoveAt(i);//og fra listen
-                                score += 100;//tilføj lidt score
+                                death(enemyBlockList[i], 100);
                             }
                         }
                     }
@@ -171,6 +173,38 @@ namespace dxballslib
                     ballClass.xspeed = xspeed;
                     ballClass.yspeed = yspeed;
                     ballClass.ballSpeed = ballspeed;
+                }
+                //drop hit-testing
+                for (int i = 0; i < dropList.Count; i++)
+                {
+                    drops drop = dropList[i];
+                    ContentControl dropObj = drop.DropObject;
+                    if (Canvas.GetBottom(dropObj) <= 10 + playerBlock.ActualHeight && Canvas.GetBottom(dropObj) >= 10)//drop player hittest
+                    {
+                        if ((Canvas.GetLeft(dropObj) >= Canvas.GetLeft(playerBlock)) && (Canvas.GetLeft(dropObj) <= Canvas.GetLeft(playerBlock) + playerBlock.ActualWidth))
+                        {
+                            switch (drop.hitPlayer())
+                            {
+                                case "BUFF":
+                                    break;
+                                case "DEBUFF":
+                                    break;
+                                case "POINTBONUS":
+                                    score += (int)drop.Points;
+                                    playArea.Children.Remove(dropObj);
+                                    dropList.Remove(drop);
+                                    break;
+                                case "LIFEBONUS":
+                                    break;
+                            }
+                        }
+                    }
+                    if (Canvas.GetBottom(dropObj) <= 0)
+                    {
+                        playArea.Children.Remove(dropObj);
+                        dropList.Remove(drop);
+                    }
+                    Canvas.SetBottom(dropObj, Canvas.GetBottom(dropObj) - drop.dropSpeed);
                 }
             }
             //enemy movement downwards
@@ -260,6 +294,32 @@ namespace dxballslib
             Canvas.SetLeft(tempPlayer, (playArea.ActualWidth / 2) - 25);
             player tempPlayerClass = new player(tempPlayer, controller, spawningPlayerSpeed);
             playerList.Add(tempPlayerClass);
+        }
+
+        private void death(ContentControl enemy, int scoreToAdd)
+        {
+            Random r = new Random();
+            if (r.NextDouble() <= 1)
+            {
+                double y = (playArea.ActualHeight - Canvas.GetTop(enemy) - enemy.ActualHeight);
+                double x = (Canvas.GetLeft(enemy) + (enemy.ActualWidth / 2) - 2.5);
+                addDrop(new Point(x, y), "scoreBuff");
+            }
+
+            playArea.Children.Remove(enemy);//fjern enemyblock'en fra skærmen
+            enemyBlockList.Remove(enemy);//og fra listen
+            score += scoreToAdd;//tilføj lidt score   
+        }
+        private void addDrop(Point whereToSpawn, string type)
+        {
+            ContentControl buff = new ContentControl();//temporary drop ContentControl
+            buff.Template = Resources[type] as ControlTemplate;//set a template for it
+            playArea.Children.Add(buff);//add it to the screen
+            Canvas.SetBottom(buff, whereToSpawn.Y);//set where it should start (y)
+            Canvas.SetLeft(buff, whereToSpawn.X);//set where it should start(x)
+            drops tempDrop = new drops(buff, type, 500, null, null);
+            //Hvis droppet så er et buff drop eller et debuff drop, så sender du et buff eller debuff objekt med når du instantierer objektet som ovenfor..
+            dropList.Add(tempDrop);//add it to the dropList
         }
     }
 }

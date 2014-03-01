@@ -18,6 +18,11 @@
                 <Rectangle Fill="Black" Height="10" Stroke="Black" Width="50"/>
             </Grid>
         </ControlTemplate>
+        <ControlTemplate x:Key="scoreBuff" TargetType="{x:Type ContentControl}">
+            <Grid>
+                <Ellipse Fill="Yellow" Height="10" Width="10" Stroke="Black"/>
+            </Grid>
+        </ControlTemplate>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
