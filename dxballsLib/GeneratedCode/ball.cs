@@ -18,23 +18,25 @@ public class ball
 		set;
 	}
 
-	private ContentControl ballObject
+	public ContentControl ballObject
 	{
 		get;
 		set;
 	}
 
-    private double xspeed;
-    private double yspeed;
-    private int xdirection;
-    private int ydirection;
-    public ball(ContentControl ballobject, double XSpeedToSpawnWith, double YSpeedToSpawnWith, int XDirectionToSpawnWith, int YDirectionToSpawnWith)
+    public double xspeed;
+    public double yspeed;
+    public int xdirection;
+    public int ydirection;
+    public double ballSpeed;
+    public ball(ContentControl ballobject, double XSpeedToSpawnWith, double YSpeedToSpawnWith, int XDirectionToSpawnWith, int YDirectionToSpawnWith, double ballSpeedToSpawnWith)
 	{
         ballObject = ballobject;
         xspeed = XSpeedToSpawnWith;
         yspeed = YSpeedToSpawnWith;
         xdirection = XDirectionToSpawnWith;
         ydirection = YDirectionToSpawnWith;
+        ballSpeed = ballSpeedToSpawnWith;
 	}
 }
 

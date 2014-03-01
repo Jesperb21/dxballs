@@ -22,7 +22,7 @@ namespace dxballslib
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<ContentControl> ballList = new List<ContentControl>(); //list of the ball objects in the game at the moment
+        public List<ball> ballList = new List<ball>(); //list of the ball objects in the game at the moment
         public List<ContentControl> enemyBlockList = new List<ContentControl>(); //list of enemyblocks in the game at the moment
         public double enemyMovementSpeed = 0.1; //enemyBlocks descending speed
         public int spawnInterval = 250;//spawn interval for a new line of enemyBlocks, measured in ticks from the mainLoop
@@ -31,12 +31,6 @@ namespace dxballslib
 
         private DispatcherTimer mainLoop = new DispatcherTimer();//main game loop
         private ContentControl playerBlock = new ContentControl();//the player
-        private ContentControl ball1 = new ContentControl(); // -----------------------to be removed
-        private int xdirection = 1; // ball variables
-        private int ydirection = 1;// ball variables
-        private double ballspeed = 6;// ball variables
-        private double xspeed;// ball variables
-        private double yspeed;// ball variables
         private int spawnCounter; //counter for spawnInterval
 
         //nothing to see here
@@ -55,9 +49,6 @@ namespace dxballslib
             playArea.Children.Add(playerBlock);
             Canvas.SetBottom(playerBlock, 10);
             Canvas.SetLeft(playerBlock, (playArea.ActualWidth / 2) - 25);
-            //set ball parameters
-            xspeed = ballspeed / 2;
-            yspeed = ballspeed / 2;
             startButton.Visibility = Visibility.Hidden; //hide the start game button
             spawnCounter = spawnInterval; // spawn a new line of enemies on the first tick of the game
             mainLoop.Interval = TimeSpan.FromMilliseconds(20); //50 per second
@@ -77,8 +68,15 @@ namespace dxballslib
                 Canvas.SetLeft(playerBlock, (Canvas.GetLeft(playerBlock) + playerMovementSpeed));
             }
             //ball controls
-            foreach (ContentControl ball1 in ballList)
+            foreach (ball ballClass in ballList)
             {
+                //get the variables from the ballclass
+                ContentControl ball1 = ballClass.ballObject;
+                int xdirection = ballClass.xdirection;
+                int ydirection = ballClass.ydirection;
+                double xspeed = ballClass.xspeed;
+                double yspeed = ballClass.yspeed;
+                double ballspeed = ballClass.ballSpeed;
 
                 if (Canvas.GetLeft(ball1) >= (playArea.ActualWidth - ball1.ActualWidth))//hvis bolden rammer højre side
                 {
@@ -154,6 +152,13 @@ namespace dxballslib
                 }
                 Canvas.SetBottom(ball1, (Canvas.GetBottom(ball1) - (yspeed * ydirection)));//flyt bolden
                 Canvas.SetLeft(ball1, (Canvas.GetLeft(ball1) + (xspeed * xdirection)));//flyt bolden
+
+                //change the values of the ballClass to the ones calculated in this loop
+                ballClass.xdirection = xdirection;
+                ballClass.ydirection = ydirection;
+                ballClass.xspeed = xspeed;
+                ballClass.yspeed = yspeed;
+                ballClass.ballSpeed = ballspeed;
             }
             //enemy movement downwards
             foreach (ContentControl enemy in enemyBlockList)//for all enemies
@@ -202,12 +207,24 @@ namespace dxballslib
         }
         private void addNewBall()
         {
-            ContentControl tempBall = new ContentControl();//add a temporary ContentControl variable-------------------------------------------edit this
+            double ballSpeed = 6;//the balls standard spawning speed
+            ContentControl tempBall = new ContentControl();//temporary ball ContentControl
             tempBall.Template = Resources["ballTemplate"] as ControlTemplate;//set a template for it
             playArea.Children.Add(tempBall);//add it to the screen
             Canvas.SetBottom(tempBall, (playArea.ActualHeight / 2));//set where it should start (y)
             Canvas.SetLeft(tempBall, (playArea.ActualWidth / 2) - 7.5);//set where it should start(x)
-            ballList.Add(tempBall);//add it to the ballList
+            Random r = new Random();//a random value to determine what direction the ball should move & what speed it should move with
+            double xspeedTemp = r.NextDouble()*ballSpeed;//find a random speed
+            int tempYDirection = r.Next(0,1);//find a random y direction based on r
+            if(tempYDirection.Equals(0)){
+                tempYDirection = -1;
+            }
+            int tempXDirection = r.Next(0,1);//find a random X direction based on r
+            if(tempXDirection.Equals(0)){
+                tempXDirection = -1;
+            }
+            ball tempBallClass = new ball(tempBall,xspeedTemp,(6-xspeedTemp),tempXDirection,tempYDirection,ballSpeed);//create a temporary instance of the class
+            ballList.Add(tempBallClass);//add the object to the ballList
         }
     }
 }
