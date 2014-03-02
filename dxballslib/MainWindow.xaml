@@ -44,6 +44,16 @@
                     <RadioButton x:Name="hard" Content="hard" Canvas.Left="10" Canvas.Top="75"/>
                 </Canvas>
             </Grid>
+            <Grid x:Name="submitForm" Canvas.Left="199" Canvas.Top="100" Height="147" Visibility="Hidden" Width="112">
+                <Label Content="Submit Score" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <Label Content="name:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                <Label Content="score" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="submitButton" Content="submit" HorizontalAlignment="Left" Margin="21,95,0,0" VerticalAlignment="Top" Width="75" Click="submitButton_Click"/>
+                <TextBlock x:Name="finalScoreText" HorizontalAlignment="Left" Margin="53,69,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="48,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="54"/>
+                <Button x:Name="restart" Content="restart" HorizontalAlignment="Left" Margin="21,120,0,0" VerticalAlignment="Top" Width="75" Click="restart_Click"/>
+            </Grid>
+            <Label x:Name="gameOverText" Content="Game Over!" FontSize="22" Canvas.Left="199" Canvas.Top="57"/>
         </Canvas>
         <TextBlock HorizontalAlignment="Left"  Grid.Row="0" TextWrapping="Wrap" Text="Score:" VerticalAlignment="Top"/>
         <TextBlock x:Name="ScoreText" HorizontalAlignment="Left"  Grid.Row="0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Margin="35,0,0,0"/>

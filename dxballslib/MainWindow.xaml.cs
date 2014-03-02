@@ -46,6 +46,7 @@ namespace dxballslib
         public MainWindow()
         {
             InitializeComponent();
+            gameOverText.Visibility = Visibility.Hidden;//hide gameover text
         } 
 
         //the main startup function, add a difficulty parameter etc here
@@ -55,6 +56,8 @@ namespace dxballslib
             droprate = difficultyClass.dropRate;//get droprate from difficulty object
             enemyMovementSpeed = difficultyClass.descendSpeed;//get enemy movement speed from difficulty object
             difficultyGrid.Visibility = Visibility.Hidden;//hide difficulty selection grid
+            submitForm.Visibility = Visibility.Hidden;//hide submitForm
+            gameOverText.Visibility = Visibility.Hidden;//hide gameOverText
             addNewBall();//add a ball
             //place a player on the screen in the middle
             addPlayer(1);//add the local player
@@ -87,8 +90,9 @@ namespace dxballslib
                     }
                 }
                 //ball controls
-                foreach (ball ballClass in ballList)
+                for (int ballindex = 0; ballindex < ballList.Count; ballindex++)
                 {
+                    ball ballClass = ballList[ballindex];
                     //get the variables from the ballclass
                     ContentControl ball1 = ballClass.ballObject;
                     int xdirection = ballClass.xdirection;
@@ -107,6 +111,8 @@ namespace dxballslib
                     }
                     if (Canvas.GetBottom(ball1) <= 0)//ball hits buttom
                     {
+                        playArea.Children.Remove(ball1);
+                        ballList.RemoveAt(ballindex);
                         ydirection = -1;
                     }
                     if (Canvas.GetBottom(ball1) >= playArea.ActualHeight)//hvis bolden rammer toppen
@@ -219,12 +225,21 @@ namespace dxballslib
             foreach (ContentControl enemy in enemyBlockList)//for all enemies
             {
                 Canvas.SetTop(enemy, Canvas.GetTop(enemy) + enemyMovementSpeed);//move a bit downward, depending on their movementspeed
+                if (Canvas.GetTop(enemy) >= playArea.ActualHeight)
+                {
+                    playerDied();
+                }
             }
             if (spawnCounter >= spawnInterval)
             {//spawn some enemies hvis du har ventet nok ticks
                 addEnemyLine();
                 //addNewBall();
                 spawnCounter = 0; //reset spawncounteren
+            }
+             //test if player is dead
+            if (ballList.Count == 0)//if there are no more balls
+            {
+                playerDied();//player dies
             }
             spawnCounter++;//another tick went by
             ScoreText.Text = score.ToString(); //update the score textblock
@@ -342,6 +357,61 @@ namespace dxballslib
             }
             //Hvis droppet så er et buff drop eller et debuff drop, så sender du et buff eller debuff objekt med når du instantierer objektet som ovenfor..
             dropList.Add(tempDrop);//add it to the dropList
+        }
+        private void playerDied() 
+        {
+            gameOverText.Visibility = Visibility.Visible;//make gameovertext visiible
+            submitForm.Visibility = Visibility.Visible;//make the submitform visible
+            difficultyGrid.Visibility = Visibility.Visible;
+            finalScoreText.Text = score.ToString();
+            int e = enemyBlockList.Count;
+            for (int i = 1; i <= e; i++)//remove all the enemyblocks
+            {
+                playArea.Children.Remove(enemyBlockList[e - i]);
+                enemyBlockList.RemoveAt(e-i);
+            }
+            e = playerList.Count();
+            for (int i = 1; i <= e; i++)//remove all players
+            {
+                playArea.Children.Remove(playerList[e - i].playerBlock);
+                playerList.RemoveAt(e - i);
+            }
+            e = dropList.Count;
+            for (int i = 1; i <= e; i++)//remove all drops
+            {
+                playArea.Children.Remove(dropList[e - i].DropObject);
+                dropList.RemoveAt(e - i);
+            }
+                mainLoop.Stop();//stop the game loop
+
+        }
+
+        private void submitButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (name.Text != "")
+            {
+                //input score to database, "name.Text" holds playername, "score" holds the score
+            }
+            else
+            {
+                MessageBox.Show("please input a name");
+            }
+        }
+
+        private void restart_Click(object sender, RoutedEventArgs e)
+        {
+            if (easy.IsChecked.Value)
+            {
+                startGameUp(new difficulty(1));
+            }
+            else if (medium.IsChecked.Value)
+            {
+                startGameUp(new difficulty(2));
+            }
+            else if (hard.IsChecked.Value)
+            {
+                startGameUp(new difficulty(3));
+            }
         }
     }
 }
