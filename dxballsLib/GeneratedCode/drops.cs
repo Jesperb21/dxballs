@@ -23,6 +23,7 @@ public class drops
     private debuffs _debuff;
     private int? _points;
     private int? _lives;
+    private int? _ballBuff;
     public buffs Buff
     {
         get
@@ -52,8 +53,15 @@ public class drops
             return _lives;
         }
     }
+    public int? ballBuff
+    {
+        get
+        {
+            return _ballBuff;
+        }
+    }
     
-    public drops(ContentControl drop, string type, int? points = null, buffs buffs = null, debuffs debuffs = null, int? lives = null)
+    public drops(ContentControl drop, string type, int? points = null, buffs buffs = null, debuffs debuffs = null, int? lives = null, int? ballBuff = null)
     {
         //Når man skriver et parameter i en constructor med f.eks. = null, så er parametren optional, og så kan du tjekke nede i hitPlayer() om hvad den skal...
         DropObject = drop;
@@ -62,6 +70,7 @@ public class drops
         _debuff = debuffs;
         _points = points;
         _lives = lives;
+        _ballBuff = ballBuff;
     }
     public drops()
     {
@@ -91,6 +100,13 @@ public class drops
             if (this.lives.HasValue)
             {
                 return "LIFEBONUS";
+            }
+        }
+        if (this.ballBuff != null)
+        {
+            if (this.ballBuff.HasValue)
+            {
+                return "BALLBUFF";
             }
         }
         return null;

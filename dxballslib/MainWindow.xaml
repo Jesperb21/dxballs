@@ -23,6 +23,11 @@
                 <Ellipse Fill="Yellow" Height="10" Width="10" Stroke="Black"/>
             </Grid>
         </ControlTemplate>
+        <ControlTemplate x:Key="ballBuff" TargetType="{x:Type ContentControl}">
+            <Grid>
+                <Ellipse Fill="Red" Height="10" Stroke="Black" Width="10"/>
+            </Grid>
+        </ControlTemplate>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>

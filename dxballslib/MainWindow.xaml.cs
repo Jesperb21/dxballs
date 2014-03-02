@@ -40,6 +40,7 @@ namespace dxballslib
         private DispatcherTimer mainLoop = new DispatcherTimer();//main game loop
         private ContentControl playerBlock = new ContentControl();//the player
         private int spawnCounter; //counter for spawnInterval
+        private Random rand = new Random();
 
         //nothing to see here
         public MainWindow()
@@ -54,6 +55,7 @@ namespace dxballslib
             droprate = difficultyClass.dropRate;//get droprate from difficulty object
             enemyMovementSpeed = difficultyClass.descendSpeed;//get enemy movement speed from difficulty object
             difficultyGrid.Visibility = Visibility.Hidden;//hide difficulty selection grid
+            addNewBall();//add a ball
             //place a player on the screen in the middle
             addPlayer(1);//add the local player
             startButton.Visibility = Visibility.Hidden; //hide the start game button
@@ -196,6 +198,12 @@ namespace dxballslib
                                     break;
                                 case "LIFEBONUS":
                                     break;
+                                case "BALLBUFF":
+                                    for (int i2 = 0; i2 < drop.ballBuff; i2++)
+                                    {
+                                        addNewBall();
+                                    }
+                                    break;
                             }
                         }
                     }
@@ -215,7 +223,7 @@ namespace dxballslib
             if (spawnCounter >= spawnInterval)
             {//spawn some enemies hvis du har ventet nok ticks
                 addEnemyLine();
-                addNewBall();
+                //addNewBall();
                 spawnCounter = 0; //reset spawncounteren
             }
             spawnCounter++;//another tick went by
@@ -299,11 +307,12 @@ namespace dxballslib
         private void death(ContentControl enemy, int scoreToAdd)
         {
             Random r = new Random();
-            if (r.NextDouble() <= 1)
+            if (r.NextDouble() <= droprate)
             {
+                string[] typesOfBuffs = new string[] { "ballBuff", "scoreBuff" };
                 double y = (playArea.ActualHeight - Canvas.GetTop(enemy) - enemy.ActualHeight);
                 double x = (Canvas.GetLeft(enemy) + (enemy.ActualWidth / 2) - 2.5);
-                addDrop(new Point(x, y), "scoreBuff");
+                addDrop(new Point(x, y), typesOfBuffs[r.Next(0, typesOfBuffs.Count())]);
             }
 
             playArea.Children.Remove(enemy);//fjern enemyblock'en fra skærmen
@@ -317,7 +326,20 @@ namespace dxballslib
             playArea.Children.Add(buff);//add it to the screen
             Canvas.SetBottom(buff, whereToSpawn.Y);//set where it should start (y)
             Canvas.SetLeft(buff, whereToSpawn.X);//set where it should start(x)
-            drops tempDrop = new drops(buff, type, 500, null, null);
+            drops tempDrop;
+            switch(type){
+                case "scoreBuff":
+                    tempDrop = new drops(buff, type, 500);
+                    break;
+                case "ballBuff":
+                    int? numOfBalls = (int?)(rand.NextDouble() * 2);
+                    numOfBalls++;
+                    tempDrop = new drops(buff, type, null, null, null, null, numOfBalls);
+                    break;
+                default:
+                    tempDrop = new drops(buff, type, 500);
+                    break;
+            }
             //Hvis droppet så er et buff drop eller et debuff drop, så sender du et buff eller debuff objekt med når du instantierer objektet som ovenfor..
             dropList.Add(tempDrop);//add it to the dropList
         }
