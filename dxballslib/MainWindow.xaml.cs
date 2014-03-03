@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Timers;
 using System.Windows.Threading;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace dxballslib
 {
@@ -47,6 +49,8 @@ namespace dxballslib
         {
             InitializeComponent();
             gameOverText.Visibility = Visibility.Hidden;//hide gameover text
+            mainLoop.Interval = TimeSpan.FromMilliseconds(20); //50 per second
+            mainLoop.Tick += mainLoop_Tick; //add an event handler for the "mainLoop.Tick" event
         } 
 
         //the main startup function, add a difficulty parameter etc here
@@ -63,8 +67,6 @@ namespace dxballslib
             addPlayer(1);//add the local player
             startButton.Visibility = Visibility.Hidden; //hide the start game button
             spawnCounter = spawnInterval; // spawn a new line of enemies on the first tick of the game
-            mainLoop.Interval = TimeSpan.FromMilliseconds(20); //50 per second
-            mainLoop.Tick += mainLoop_Tick; //add an event handler for the "mainLoop.Tick" event
             mainLoop.Start();//start the dispatchertimer
         }
 
@@ -294,14 +296,14 @@ namespace dxballslib
             playArea.Children.Add(tempBall);//add it to the screen
             Canvas.SetBottom(tempBall, (playArea.ActualHeight / 2));//set where it should start (y)
             Canvas.SetLeft(tempBall, (playArea.ActualWidth / 2) - 7.5);//set where it should start(x)
-            Random r = new Random();//a random value to determine what direction the ball should move & what speed it should move with
-            double xspeedTemp = r.NextDouble()*ballSpeed;//find a random speed
-            int tempYDirection = r.Next(0,1);//find a random y direction based on r
-            if(tempYDirection.Equals(0)){
+            //Random r = new Random();//a random value to determine what direction the ball should move & what speed it should move with
+            double xspeedTemp = rand.NextDouble()*ballSpeed;//find a random speed
+            int tempYDirection = rand.Next(1,3);//find a random y direction based on r
+            if(tempYDirection.Equals(2)){
                 tempYDirection = -1;
             }
-            int tempXDirection = r.Next(0,1);//find a random X direction based on r
-            if(tempXDirection.Equals(0)){
+            int tempXDirection = rand.Next(1,3);//find a random X direction based on r
+            if(tempXDirection.Equals(2)){
                 tempXDirection = -1;
             }
             ball tempBallClass = new ball(tempBall,xspeedTemp,(6-xspeedTemp),tempXDirection,tempYDirection,ballSpeed);//create a temporary instance of the class
@@ -347,7 +349,7 @@ namespace dxballslib
                     tempDrop = new drops(buff, type, 500);
                     break;
                 case "ballBuff":
-                    int? numOfBalls = (int?)(rand.NextDouble() * 2);
+                    int? numOfBalls = (int?)(rand.NextDouble() * 3);
                     numOfBalls++;
                     tempDrop = new drops(buff, type, null, null, null, null, numOfBalls);
                     break;
@@ -358,8 +360,9 @@ namespace dxballslib
             //Hvis droppet så er et buff drop eller et debuff drop, så sender du et buff eller debuff objekt med når du instantierer objektet som ovenfor..
             dropList.Add(tempDrop);//add it to the dropList
         }
-        private void playerDied() 
+        private void playerDied()
         {
+            mainLoop.Stop();//stop the game loop
             gameOverText.Visibility = Visibility.Visible;//make gameovertext visiible
             submitForm.Visibility = Visibility.Visible;//make the submitform visible
             difficultyGrid.Visibility = Visibility.Visible;
@@ -382,7 +385,6 @@ namespace dxballslib
                 playArea.Children.Remove(dropList[e - i].DropObject);
                 dropList.RemoveAt(e - i);
             }
-                mainLoop.Stop();//stop the game loop
 
         }
 
@@ -390,7 +392,19 @@ namespace dxballslib
         {
             if (name.Text != "")
             {
+                SqlConnection connection = new SqlConnection(@"Data Source=192.168.139.91\SQLEXPRESS;Initial Catalog=DXBallHighScore;Persist Security Info=True;User ID=DXBALL;Password=password");
+                connection.Open();
+
+                SqlCommand insertCommand = new SqlCommand();
+                insertCommand.CommandType = CommandType.StoredProcedure;
+                insertCommand.CommandText = "InsertDXBallScore";
+                insertCommand.Connection = connection;
+
+                insertCommand.Parameters.AddWithValue("@PlayerName", name.Text);
+                insertCommand.Parameters.AddWithValue("@Score", score);
+                insertCommand.ExecuteNonQuery();
                 //input score to database, "name.Text" holds playername, "score" holds the score
+                MessageBox.Show("show");
             }
             else
             {
